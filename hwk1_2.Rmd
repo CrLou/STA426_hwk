@@ -1,0 +1,28 @@
+---
+title: "Homework 1.2"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+A log-normaldistribution is a continuous probability distribution of a random variable whose logarithm is normally distributed. Both meam and sigma of this distribution can be calculated applying the respective equations and knowing in advance the arithmetic mean and sigma (as it is stated in the code below):
+
+```{r}
+mu <- 1
+sd <- 0.25
+logmu <- log(mu^2 / sqrt(sd^2 + mu^2))
+logsd <- sqrt(log(1 + (sd^2 / mu^2)))
+distr <- rlnorm(n=100, logmu, logsd)
+mean(distr)
+sd(distr)
+hist(distr, main = "Histogram of the log-normal distribution", xlab = "distribution")
+```
+
+As we can see on the previous histogram. The location of the distribution is centered around a value of 1 and a shape correlated with the value of sigma.
+
+
+
+
